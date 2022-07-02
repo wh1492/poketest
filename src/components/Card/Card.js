@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../logo.svg";
 import "./Card.scss";
 
 function Card(props) {
   const { pokemon } = props;
+
+  const [imagePoke, setImagePoke] = useState("");
+
+  const getImage = async (id) => {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const data = await response.json();
+    setImagePoke(data.sprites.front_default);
+  };
 
   let idPoke = pokemon.url.split("/");
   idPoke = idPoke[6];
@@ -18,11 +26,16 @@ function Card(props) {
     return idPoke;
   };
 
+  useEffect(() => {
+    getImage(idPoke);
+  }, []);
+
   return (
     <div className="card" id={idPoke} data-search={pokemon.name}>
       <Link to={`/detalle/${idPoke}`} key={idPoke}>
         <div className="card_image">
-          <img src={logo} />
+          <img src={imagePoke} />
+          {/* {imagePoke} */}
         </div>
         <div className="card_info">
           <h3 className="card_name">{pokemon.name}</h3>#{idNumber(idPoke)}

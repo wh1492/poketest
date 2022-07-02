@@ -23,7 +23,7 @@ function App() {
   } else {
     return (
       <div className="App">
-          <List pokemoList={pokemoList} />
+        <List pokemoList={pokemoList} />
       </div>
     );
   }
