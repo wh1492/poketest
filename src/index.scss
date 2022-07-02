@@ -37,38 +37,88 @@ a {
   }
 }
 
+.navigation {
+  ul {
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    @media screen and (min-width: 740px) {
+      justify-content: center;
+    }
+    li {
+      &.page-prev,
+      &.page-next {
+        @media screen and (min-width: 740px) {
+          position: absolute;
+          top: 0;
+        }
+
+        .nav {
+          position: relative;
+          padding: 0.5rem 1.4rem;
+          text-decoration: none;
+          min-width: 80px;
+        }
+      }
+      &.page-prev {
+        left: 0;
+        @media screen and (min-width: 1100px) {
+          left: -50px;
+        }
+      }
+      &.page-next {
+        right: 0;
+        @media screen and (min-width: 1100px) {
+          right: -50px;
+        }
+      }
+    }
+  }
+}
+
 .nav {
   border: 1px solid rgb(215, 215, 215);
   display: block;
   position: relative;
   margin: 0 auto;
-  padding: 0.35rem 0.55rem;
-  width: 50%;
-  max-width: 160px;
   text-align: center;
   text-decoration: none;
   font-weight: 700;
-  &::before {
-    content: "←  ";
-    position: absolute;
-    left: 25px;
-    transform: translateY(-50%);
-    top: 50%;
-  }
+  line-height: 1;
+  &-back {
+    padding: 0.35rem 1.55rem 0.35rem 0.55rem;
+    width: 100%;
+    max-width: 160px;
 
-  &:hover::before {
-    animation: arrow 2s ease infinite;
+    @media screen and (min-width: 740px) {
+      line-height: 1.4;
+    }
+    &::before {
+      content: "←  ";
+      // position: absolute;
+      position: relative;
+      display: inline;
+      margin-right: 0.5rem;
+      left: 5px;
+      transform: translateY(-50%);
+      top: 50%;
+    }
+
+    &:hover::before {
+      animation: arrow 2s ease infinite;
+    }
   }
 }
 
 @keyframes arrow {
   0% {
-    left: 25px;
+    left: 5px;
   }
   50% {
-    left: 15px;
+    left: -5px;
   }
   100% {
-    left: 25px;
+    left: 5px;
   }
 }

@@ -34,11 +34,9 @@ function Detail() {
     return idPoke;
   };
 
-  const pokemonType = () => {};
-
   useEffect(() => {
     getPokemon();
-  }, []);
+  }, [params]);
   //
   if (loading) {
     return <div> Cargando </div>;
@@ -105,9 +103,26 @@ function Detail() {
             {/* <pre>{JSON.stringify(pokemon, null, 2)}</pre> */}
           </div>
         </div>
-        <Link className="nav nav-back" to="/">
-          Volver
-        </Link>
+        {/*  */}
+        <nav className="navigation">
+          <ul>
+            <li className="navigation-item page-prev">
+              <Link className="nav nav-prev" to={`/detalle/${pokemon.id - 1}/`}>
+                #{idNumber(pokemon.id - 1)}
+              </Link>
+            </li>
+            <li className="navigation-item">
+              <Link className="nav nav-back" to="/">
+                Volver
+              </Link>
+            </li>
+            <li className="navigation-item page-next">
+              <Link className="nav nav-next" to={`/detalle/${pokemon.id + 1}/`}>
+                #{idNumber(pokemon.id + 1)}
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </div>
     );
   }
