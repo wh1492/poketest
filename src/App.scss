@@ -1,14 +1,19 @@
-.pokemon-list {
-  border: 1px solid lime;
+.container { 
   position: relative;
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 ;
+  padding: 0 0.5rem;
+}
+
+.pokemon-list {
+  border: 1px solid lime;
 
   // grid-list
   display: grid;
   grid-template-columns: auto ;
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 0.5rem;
 
   @media screen and (min-width: 540px) {
     grid-template-columns: auto auto ;

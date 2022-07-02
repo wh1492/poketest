@@ -3,7 +3,7 @@
   line-break: anywhere;
   // width: 100%;
   border-radius: 0.4rem;
-  margin: 0.5rem;
+ // margin: 0.5rem;
   text-align: center;
 
   @media screen and (min-width: 740px) {
@@ -15,5 +15,12 @@
   &_name {
     font-size: 1.4rem;
     text-transform: capitalize;
+  }
+
+  a {
+    text-decoration: none;
+  //  color: inherit;
+    transition: all 0.65s ease;
+   
   }
 }

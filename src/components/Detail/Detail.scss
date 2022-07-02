@@ -1,0 +1,25 @@
+.pokemon-detail {
+  border: 1px solid magenta;
+  margin-top: 2rem;
+  padding: 0 0.5rem 2rem;
+
+  // grid-list
+  display: grid;
+  grid-template-columns: auto;
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 0.5rem;
+
+  @media screen and (min-width: 640px) {
+    grid-template-columns: 45% auto;
+  }
+  @media screen and (min-width: 740px) {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  &--image {
+    border: 1px solid blue;
+  }
+  &--info {
+    border: 1px solid red;
+  }
+}

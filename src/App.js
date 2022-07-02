@@ -1,32 +1,31 @@
-
 import { useEffect, useState } from "react";
-import "./App.scss";
+import { Link } from "react-router-dom";
 
-import Card from "./components/Card/Card";
+import "./App.scss";
+import List from "./components/List/List";
 
 function App() {
-  const [pokeList, setPokeList] = useState([]);
+  const [pokemoList, setPokemoList] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const getPokeList = async () => {
+  const getPokemoList = async () => {
     const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
     const data = await response.json();
-    setPokeList(data.results);
+    setPokemoList(data.results);
     setLoading(false);
   };
 
   useEffect(() => {
-    getPokeList();
+    getPokemoList();
   }, []);
   if (loading) {
     return <div> Cargando </div>;
   } else {
-    return <div className="App">
-      <div className="pokemon-list">
-      {pokeList.map(pokemon => <Card key={pokemon.name} pokemon={pokemon} />)}
-      {/* {JSON.stringify(pokeList)} */}
+    return (
+      <div className="App">
+        <List pokemoList={pokemoList} />
       </div>
-    </div>;
+    );
   }
 }
 
