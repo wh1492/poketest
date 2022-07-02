@@ -20,17 +20,11 @@ function Detail() {
   };
 
   let idNumber = (idPoke) => {
-    console.log("length idPoke: ", idPoke);
-    console.log("length hola: ", idPoke.length);
-    idPoke = Number(idPoke);
-    if (idPoke.length === 1) {
-      console.log("es 1");
+    if (idPoke.toString().length === 1) {
       idPoke = "00" + idPoke;
-    } else if (idPoke.length === 2) {
-      console.log("es 2");
+    } else if (idPoke.toString().length === 2) {
       idPoke = "0" + idPoke;
     }
-    console.log("export");
     return idPoke;
   };
 
@@ -107,19 +101,39 @@ function Detail() {
         <nav className="navigation">
           <ul>
             <li className="navigation-item page-prev">
-              <Link className="nav nav-prev" to={`/detalle/${pokemon.id - 1}/`}>
-                #{idNumber(pokemon.id - 1)}
-              </Link>
+              {pokemon.id - 1 !== 0 ? (
+                <Link
+                  className="nav nav-prev"
+                  to={`/detalle/${pokemon.id - 1}/`}
+                >
+                  #{idNumber(pokemon.id - 1)}
+                </Link>
+              ) : (
+                <span className="nav nav-prev">
+                  #{idNumber(pokemon.id - 1)}
+                </span>
+              )}
             </li>
+
             <li className="navigation-item">
               <Link className="nav nav-back" to="/">
                 Volver
               </Link>
             </li>
+
             <li className="navigation-item page-next">
-              <Link className="nav nav-next" to={`/detalle/${pokemon.id + 1}/`}>
-                #{idNumber(pokemon.id + 1)}
-              </Link>
+              {pokemon.id + 1 <= 151 ? (
+                <Link
+                  className="nav nav-next"
+                  to={`/detalle/${pokemon.id + 1}/`}
+                >
+                  #{idNumber(pokemon.id + 1)}
+                </Link>
+              ) : (
+                <span className="nav nav-next">
+                  #{idNumber(pokemon.id + 1)}
+                </span>
+              )}
             </li>
           </ul>
         </nav>
