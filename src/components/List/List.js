@@ -3,7 +3,7 @@ import Card from "../Card/Card";
 
 function List({ pokemoList }) {
   return (
-    <div className="container pokemon-list">
+    <div className="pokemon-list">
       {pokemoList.map((pokemon) => (
         <div key={pokemon.name} className="pokemon-list--column">
           <Card pokemon={pokemon} />

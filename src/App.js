@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+
+import List from "./components/List/List";
+import Search from "./components/Search/Search";
 
 import "./App.scss";
-import List from "./components/List/List";
 
 function App() {
   const [pokemoList, setPokemoList] = useState([]);
@@ -23,7 +24,10 @@ function App() {
   } else {
     return (
       <div className="App">
-        <List pokemoList={pokemoList} />
+        <div className="container">
+          <Search />
+          <List pokemoList={pokemoList} />
+        </div>
       </div>
     );
   }

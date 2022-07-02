@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../logo.svg";
 import "./Card.scss";
 
 function Card(props) {
@@ -34,7 +33,7 @@ function Card(props) {
     <div className="card" id={idPoke} data-search={pokemon.name}>
       <Link to={`/detalle/${idPoke}`} key={idPoke}>
         <div className="card_image">
-          <img src={imagePoke} />
+          <img src={imagePoke} alt={pokemon.name} />
           {/* {imagePoke} */}
         </div>
         <div className="card_info">
