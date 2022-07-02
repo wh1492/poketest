@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState } from "react";
+import "./Search.scss";
 
 function Search() {
+  const [pokename, setPokeName] = useState("");
+
+  const handleName = (e) => {
+    setPokeName(e.target.value);
+    console.log('pokename: ', pokename)
+  };
   return (
-    <div>Search</div>
-  )
+    <div className="pokemon-search">
+      <input onChange={handleName} type="text" value={pokename} placeholder="Search your favorite Pokemon" />
+    </div>
+  );
 }
 
-export default Search
+export default Search;

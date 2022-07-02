@@ -34,11 +34,9 @@ function Card(props) {
       <Link to={`/detalle/${idPoke}`} key={idPoke}>
         <div className="card_image">
           <img src={imagePoke} alt={pokemon.name} />
-          {/* {imagePoke} */}
         </div>
         <div className="card_info">
           <h3 className="card_name">{pokemon.name}</h3>#{idNumber(idPoke)}
-          {/* {pokemon.url} */}
         </div>
       </Link>
     </div>

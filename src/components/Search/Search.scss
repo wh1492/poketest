@@ -1,0 +1,19 @@
+.pokemon-search {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 2rem;
+    input {
+        width: 100%;
+        padding: 0.5rem 1rem 0.5rem 0.5rem;
+        font-size: 500;
+        color: #3d3d3d;
+        border: 1px solid lighten(#7f7f7f, 35%);
+        border-radius: 0.4rem;
+        transition: all 0.65s ease;
+        &:focus {
+            outline: none;
+            border: 1px solid #9b9b9b;
+        }
+    }
+}
