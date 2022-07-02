@@ -20,19 +20,15 @@ function Card(props) {
 
   return (
     <div className="card" id={idPoke} data-search={pokemon.name}>
-      <div className="card_image">
-        <img src={logo} />
-      </div>
-      <div className="card_info">
-        <h3 className="card_name">
-          <Link to={`/detalle/${idPoke}`} key={idPoke}>
-            {pokemon.name}
-          </Link>
-        </h3>
-        #{idNumber(idPoke)}
-        {/* <br />
-        {pokemon.url} */}
-      </div>
+      <Link to={`/detalle/${idPoke}`} key={idPoke}>
+        <div className="card_image">
+          <img src={logo} />
+        </div>
+        <div className="card_info">
+          <h3 className="card_name">{pokemon.name}</h3>#{idNumber(idPoke)}
+          {/* {pokemon.url} */}
+        </div>
+      </Link>
     </div>
   );
 }

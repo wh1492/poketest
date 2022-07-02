@@ -1,26 +1,47 @@
 .card {
-  border: 1px solid magenta;
+  width: 100%;
+  max-width: 320px;
   line-break: anywhere;
-  // width: 100%;
   border-radius: 0.4rem;
- // margin: 0.5rem;
+  padding: 0;
+  margin: auto;
   text-align: center;
+  box-shadow: 0.1rem 0.15rem 0.35rem 0 rgba(60, 60, 60, 0.45);
+  transition: all 0.65s ease;
 
-  @media screen and (min-width: 740px) {
-    //  width: 22%;
-    //  margin: 0 auto 1.4rem;
-    // max-width: 200px;
+  &:hover {
+    box-shadow: 0.1rem 0.15rem 0.35rem 0.15rem rgba(60, 60, 60, 0.55);
   }
-
+  &_info {
+    padding: 0.25rem 0.25rem 0.45rem;
+  }
   &_name {
     font-size: 1.4rem;
     text-transform: capitalize;
   }
+  &_image {
+    position: relative;
+    display: block;
+    padding: 0.25rem;
+    width: 100%;
+    background-color: #f2f2f2;
+    img {
+      display: block;
+      margin: 0 auto;
+      height: 150px;
+      transition: all 0.65s ease;
+    }
+  }
 
   a {
     text-decoration: none;
-  //  color: inherit;
+    //  color: inherit;
     transition: all 0.65s ease;
-   
+
+    &:hover {
+      .card_image img {
+        transform: scale(1.1);
+      }
+    }
   }
 }
