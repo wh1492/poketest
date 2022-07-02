@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./Search.scss";
 
-function Search() {
+function Search({pokeSearch}) {
+  console.log('props:' , pokeSearch)
   const [pokename, setPokeName] = useState("");
 
   const handleName = (e) => {
