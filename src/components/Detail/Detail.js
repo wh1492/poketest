@@ -19,58 +19,95 @@ function Detail() {
     setLoading(false);
   };
 
+  let idNumber = (idPoke) => {
+    console.log("length idPoke: ", idPoke);
+    console.log("length hola: ", idPoke.length);
+    idPoke = Number(idPoke);
+    if (idPoke.length === 1) {
+      console.log("es 1");
+      idPoke = "00" + idPoke;
+    } else if (idPoke.length === 2) {
+      console.log("es 2");
+      idPoke = "0" + idPoke;
+    }
+    console.log("export");
+    return idPoke;
+  };
+
+  const pokemonType = () => {};
+
   useEffect(() => {
     getPokemon();
   }, []);
+  //
   if (loading) {
     return <div> Cargando </div>;
   } else {
     return (
-      <div className="container pokemon-detail">
-        <div className="pokemon-detail--image">
-          <img
-            src={pokemon.sprites.front_default}
-            alt={`${pokemon.species.name}_front`}
-          />
-          <img
-            src={pokemon.sprites.back_default}
-            alt={`${pokemon.species.name}_back`}
-          />
-        </div>
-        <div className="pokemon-detail--info">
-          <h2 className="pokemon-name">
-            {pokemon.species.name} <span>{pokemon.id} </span>{" "}
-          </h2>
-          <div className="pokemon-info-column">
-            <div className="pokemon-info-column-item">
-              <h4>Height </h4>
-              {pokemon.height}
-            </div>
-            <div className="pokemon-info-column-item">
-              <h4>Weight </h4>
-              {pokemon.weight}
+      <div className="container">
+        <div className=" pokemon-detail">
+          <div className="pokemon-detail--image">
+            <div className="pokemon-detail--image-anim">
+              <img
+                className="front"
+                src={pokemon.sprites.front_default}
+                alt={`${pokemon.species.name}_front`}
+              />
+              {pokemon.sprites.back_default && (
+                <img
+                  className="back"
+                  src={pokemon.sprites.back_default}
+                  alt={`${pokemon.species.name}_back`}
+                />
+              )}
             </div>
           </div>
+          <div className="pokemon-detail--info">
+            <h2 className="pokemon-name">
+              {pokemon.species.name} <span>{idNumber(pokemon.id)} </span>{" "}
+            </h2>
+            <div className="pokemon-data">
+              <div className="pokemon-data-column">
+                <div className="pokemon-data-column-item">
+                  <h4>Height </h4>
+                  {pokemon.height}
+                </div>
+                <div className="pokemon-data-column-item">
+                  <h4>Weight </h4>
+                  {pokemon.weight}
+                </div>
+              </div>
 
-          <div className="pokemon-info-column">
-            <div className="pokemon-info-column-item">
-              <h4>Type </h4>
-              {pokemon.types.map((type) => (
-                <div>{type.type.name} </div>
-              ))}
+              <div className="pokemon-data-column">
+                <div className="pokemon-data-column-item">
+                  <h4>Type </h4>
+                  {pokemon.types.map((type) => (
+                    <div
+                      className={`type ${type.type.name}`}
+                      key={type.type.name}
+                    >
+                      {type.type.name}{" "}
+                    </div>
+                  ))}
+                </div>
+                <div className="pokemon-data-column-item">
+                  <h4>Abilities</h4>
+                  {pokemon.abilities.map((type) => (
+                    <span className="ability" key={type.ability.name}>
+                      {" "}
+                      {type.ability.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="pokemon-info-column-item">
-              <h4>Abilities</h4>
-              {pokemon.abilities.map((type) => (
-                <div>{type.ability.name} </div>
-              ))}
-            </div>
+
+            {/* <pre>{JSON.stringify(pokemon, null, 2)}</pre> */}
           </div>
-
-          {/* <pre>{JSON.stringify(pokemon, null, 2)}</pre> */}
         </div>
-
-        <Link to="/">Volver</Link>
+        <Link className="nav nav-back" to="/">
+          Volver
+        </Link>
       </div>
     );
   }

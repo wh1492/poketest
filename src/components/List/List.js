@@ -5,8 +5,8 @@ function List({ pokemoList }) {
   return (
     <div className="container pokemon-list">
       {pokemoList.map((pokemon) => (
-        <div className="pokemon-list--column">
-          <Card key={pokemon.name} pokemon={pokemon} />
+        <div key={pokemon.name} className="pokemon-list--column">
+          <Card pokemon={pokemon} />
         </div>
       ))}
       {/* {JSON.stringify(pokeList)} */}
