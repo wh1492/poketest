@@ -33,6 +33,7 @@ function App() {
 
   useEffect(() => {
     getPokemoList();
+    document.title = "Pokemon App";
   }, []);
 
   useEffect(() => {

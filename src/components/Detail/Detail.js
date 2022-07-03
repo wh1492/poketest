@@ -9,6 +9,7 @@ function Detail() {
   let params = useParams();
 
   const [pokemon, setPokemon] = useState([]);
+  const [pokemonName, setPokemonName] = useState('');
   const [loading, setLoading] = useState(true);
 
   const getPokemon = async () => {
@@ -17,6 +18,7 @@ function Detail() {
     );
     const data = await response.json();
     setPokemon(data);
+    setPokemonName(data.species.name);
     setLoading(false);
   };
 
@@ -30,8 +32,9 @@ function Detail() {
   };
 
   useEffect(() => {
+    document.title = `Pokemon App - ${pokemonName}`;
     getPokemon();
-  }, [params]);
+  }, [params, pokemonName]);
   //
   if (loading) {
     return <Loader />;
