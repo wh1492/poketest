@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import List from "./components/List/List";
-// import Search from "./components/Search/Search";
+ import Search from "./components/Search/Search";
 
 import "./App.scss";
 
@@ -27,9 +27,6 @@ function App() {
     const newList = pokeSearch.filter((pokemon) =>
       pokemon.name.includes(pokename)
     );
-    // console.log('pokeSearch ', pokeSearch.length)
-    // console.log('pokemoList ', pokemoList.length)
-    // console.log("newlist", newList, " length: ", newList.length);
     setPokemoList(newList);
   };
 
@@ -47,15 +44,14 @@ function App() {
     return (
       <div className="App">
         <div className="container">
-          {/* <Search pokeSearch={pokeSearch} /> */}
-          <div className="pokemon-search">
-            <input
+          <Search >
+          <input
               onChange={handleName}
               type="text"
               value={pokename}
               placeholder="Search your favorite Pokemon"
             />
-          </div>
+          </Search>
           <List pokemoList={pokemoList} />
         </div>
       </div>
