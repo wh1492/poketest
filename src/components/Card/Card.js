@@ -27,7 +27,7 @@ function Card(props) {
 
   useEffect(() => {
     getImage(idPoke);
-  }, []);
+  }, [idPoke]);
 
   return (
     <div className="card" id={idPoke} data-search={pokemon.name}>
