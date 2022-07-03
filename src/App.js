@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
 import List from "./components/List/List";
- import Search from "./components/Search/Search";
+import Search from "./components/Search/Search";
+import Loader from "./components/Loader/Loader";
 
 import "./App.scss";
 
@@ -39,13 +40,13 @@ function App() {
   }, [pokename]);
   //
   if (loading) {
-    return <div> Cargando </div>;
+    return <Loader />;
   } else {
     return (
       <div className="App">
         <div className="container">
-          <Search >
-          <input
+          <Search>
+            <input
               onChange={handleName}
               type="text"
               value={pokename}

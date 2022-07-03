@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 import "./Detail.scss";
 
@@ -33,7 +34,7 @@ function Detail() {
   }, [params]);
   //
   if (loading) {
-    return <div> Cargando </div>;
+    return <Loader />;
   } else {
     return (
       <div className="container">
