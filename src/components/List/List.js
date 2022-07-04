@@ -3,7 +3,7 @@ import { useContext } from "react";
 import PokemonListContext from "../../context/PokemonListContext";
 import Card from "../Card/Card";
 import Loader from "../Loader/Loader";
-import NotFound from "../NotFound/NotFound";
+import NoResults from "../NoResults/NoResults";
 
 function List() {
   const { pokemoList, loading } = useContext(PokemonListContext);
@@ -14,7 +14,7 @@ function List() {
     return (
       <>
         {pokemoList.length === 0 ? (
-          <NotFound />
+          <NoResults />
         ) : (
           <div className="pokemon-list">
             {pokemoList.map((pokemon) => (

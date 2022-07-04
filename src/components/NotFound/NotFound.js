@@ -1,19 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import catchemall from "../../assets/pokemon-catch.svg";
 
 function NotFound() {
-  const pikachu =
-    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png";
   return (
-    <div className="no-results">
-      <h2>No hay resultados!!</h2>
-      <p>
-        <i>intenta con otra busqueda como por ejemplo:</i>
-        <br />
-        <strong>
-          <i>Pikachu</i>
-        </strong>
-      </p>
-      <img src={pikachu} alt="pikachu" />
+    <div className="container">
+      <div className="inner not-found">
+        <h2>Lo sentimos parece no existir el Pokemon que buscas!!</h2>
+        <p>
+          <i>intenta volver a la pagina principal y prueba de nuevo:</i>
+        </p>
+        <Link to="/">
+          <img src={catchemall} alt="catch-em-all" />
+        </Link>
+      </div>
     </div>
   );
 }

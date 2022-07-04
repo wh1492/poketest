@@ -5,12 +5,16 @@ import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Detail from "./components/Detail/Detail";
+import Header from "./components/commons/Header";
+import Footer from "./components/commons/Footer";
+import NotFound from "./components/NotFound/NotFound";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<App />} />
         {/* <Route path="detalle" element={<Detail />} /> */}
@@ -19,13 +23,10 @@ root.render(
         </Route>
         <Route
           path="*"
-          element={
-            <main style={{ padding: "1rem" }}>
-              <p>There's nothing here!</p>
-            </main>
-          }
+          element={<NotFound />}
         />
       </Routes>
+      <Footer />
     </BrowserRouter>
   </React.StrictMode>
 );
