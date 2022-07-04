@@ -33,7 +33,6 @@ export const PokemonProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    console.log("effect pokename", pokename);
     searchMod(pokename);
   }, [pokename]);
 

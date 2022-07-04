@@ -1,19 +1,9 @@
-import { useEffect, useState, useContext } from "react";
-
 import List from "./components/List/List";
 import Search from "./components/Search/Search";
-import Loader from "./components/Loader/Loader";
-
 import { PokemonProvider } from "./context/PokemonContext";
-
 import "./App.scss";
 
 function App() {
-  // const { loading } = useContext(PokemonContext);
-
-  // if (loading) {
-  //   return <Loader />;
-  // } else {
   return (
     <PokemonProvider>
       <div className="App">
@@ -24,7 +14,6 @@ function App() {
       </div>
     </PokemonProvider>
   );
-  // }
 }
 
 export default App;
