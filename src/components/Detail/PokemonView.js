@@ -36,10 +36,11 @@ function PokemonView() {
               <div className="pokemon-data-column-item">
                 <h4>Height </h4>
                 {pokemon.height}
+                {"'  "} ({(pokemon.height / 3.281).toFixed(2)}mt)
               </div>
               <div className="pokemon-data-column-item">
                 <h4>Weight </h4>
-                {pokemon.weight}
+                {pokemon.weight} lbs ({(pokemon.weight / 2.205).toFixed(2)}Kg)
               </div>
             </div>
 
