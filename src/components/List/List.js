@@ -1,7 +1,10 @@
 import React from "react";
+import { useContext } from "react";
+import PokemonContext from "../../context/PokemonContext";
 import Card from "../Card/Card";
 
-function List({ pokemoList }) {
+function List() {
+  const {pokemoList} = useContext(PokemonContext)
   return (
     <div className="pokemon-list">
       {pokemoList.map((pokemon) => (
@@ -9,7 +12,7 @@ function List({ pokemoList }) {
           <Card pokemon={pokemon} />
         </div>
       ))}
-      {/* {JSON.stringify(pokeList)} */}
+      {/* {JSON.stringify(pokemoList)} */}
     </div>
   );
 }

@@ -14,23 +14,25 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 //   </React.StrictMode>
 // );
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} />
-      {/* <Route path="detalle" element={<Detail />} /> */}
-      <Route path="detalle" element={<Detail />}>
-        <Route path=":detalleId" element={<Detail />} />
-      </Route>
-      <Route
-        path="*"
-        element={
-          <main style={{ padding: "1rem" }}>
-            <p>There's nothing here!</p>
-          </main>
-        }
-      />
-    </Routes>
-  </BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        {/* <Route path="detalle" element={<Detail />} /> */}
+        <Route path="detalle" element={<Detail />}>
+          <Route path=":detalleId" element={<Detail />} />
+        </Route>
+        <Route
+          path="*"
+          element={
+            <main style={{ padding: "1rem" }}>
+              <p>There's nothing here!</p>
+            </main>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

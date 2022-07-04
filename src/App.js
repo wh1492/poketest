@@ -1,64 +1,30 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
 import List from "./components/List/List";
 import Search from "./components/Search/Search";
 import Loader from "./components/Loader/Loader";
 
+import { PokemonProvider } from "./context/PokemonContext";
+
 import "./App.scss";
 
 function App() {
-  const [pokemoList, setPokemoList] = useState([]);
-  const [pokeSearch, setPokeSearch] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [pokename, setPokeName] = useState("");
+  // const { loading } = useContext(PokemonContext);
 
-  const getPokemoList = async () => {
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
-    const data = await response.json();
-    setPokemoList(data.results);
-    setPokeSearch(data.results);
-    setLoading(false);
-  };
-
-  const handleName = (e) => {
-    setPokeName(e.target.value);
-  };
-
-  const searchMod = (pokename) => {
-    const newList = pokeSearch.filter((pokemon) =>
-      pokemon.name.includes(pokename)
-    );
-    setPokemoList(newList);
-  };
-
-  useEffect(() => {
-    getPokemoList();
-    document.title = "Pokemon App";
-  }, []);
-
-  useEffect(() => {
-    searchMod(pokename);
-  }, [pokename]);
-  //
-  if (loading) {
-    return <Loader />;
-  } else {
-    return (
+  // if (loading) {
+  //   return <Loader />;
+  // } else {
+  return (
+    <PokemonProvider>
       <div className="App">
         <div className="container">
-          <Search>
-            <input
-              onChange={handleName}
-              type="text"
-              value={pokename}
-              placeholder="Search your favorite Pokemon"
-            />
-          </Search>
-          <List pokemoList={pokemoList} />
+          <Search />
+          <List />
         </div>
       </div>
-    );
-  }
+    </PokemonProvider>
+  );
+  // }
 }
 
 export default App;
