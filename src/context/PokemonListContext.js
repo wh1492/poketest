@@ -1,8 +1,8 @@
 import { createContext, useState, useEffect } from "react";
 
-const PokemonContext = createContext();
+const PokemonListContext = createContext();
 
-export const PokemonProvider = ({ children }) => {
+export const PokemonListProvider = ({ children }) => {
   const [pokemoList, setPokemoList] = useState([]);
   const [pokeSearch, setPokeSearch] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -37,7 +37,7 @@ export const PokemonProvider = ({ children }) => {
   }, [pokename]);
 
   return (
-    <PokemonContext.Provider
+    <PokemonListContext.Provider
       value={{
         /** STATES */
         pokemoList,
@@ -50,8 +50,8 @@ export const PokemonProvider = ({ children }) => {
       }}
     >
       {children}
-    </PokemonContext.Provider>
+    </PokemonListContext.Provider>
   );
 };
 
-export default PokemonContext;
+export default PokemonListContext;

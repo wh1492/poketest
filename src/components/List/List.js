@@ -1,12 +1,12 @@
 import React from "react";
 import { useContext } from "react";
-import PokemonContext from "../../context/PokemonContext";
+import PokemonListContext from "../../context/PokemonListContext";
 import Card from "../Card/Card";
 import Loader from "../Loader/Loader";
 import NotFound from "../NotFound/NotFound";
 
 function List() {
-  const { pokemoList, loading } = useContext(PokemonContext);
+  const { pokemoList, loading } = useContext(PokemonListContext);
 
   if (loading) {
     return <Loader />;

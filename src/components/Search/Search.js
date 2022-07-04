@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import PokemonContext from "../../context/PokemonContext";
+import PokemonListContext from "../../context/PokemonListContext";
 import "./Search.scss";
 
 function Search() {
-  const { pokename, handleName, loading } = useContext(PokemonContext);
+  const { pokename, handleName, loading } = useContext(PokemonListContext);
   return (
     <div className="pokemon-search">
       <input
